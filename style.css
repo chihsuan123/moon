@@ -1,0 +1,127 @@
+body{
+    margin:0px;
+    font-family:"微軟正黑體","新細明體";
+}
+.header{
+    font-size:40px;
+    color:#ffffff;
+    font-weight: bold;
+    text-align:center;
+    background: #223344;
+    padding:30px 0px; /*上下 左右*/
+}
+
+/*CSS Media Query*/
+@media (max-width:500px){
+    /* 螢幕尺寸小於 500 像素的時候，額外套用這個區塊的設定 */
+    .header{
+        font-size:30px;
+    }
+}
+
+.nav{
+    font-size:24px;
+    text-align:center;
+    height:50px;
+    line-height:50px; /*區塊高度等於行高就可以置中*/
+}
+/*階層式選擇器*/
+.nav>.item{
+    padding:20px;
+    cursor:pointer; /*滑鼠樣式*/
+}
+@media (max-width:500px){
+    
+    .nav{
+        white-space:nowrap; /*讓物品不會往下換行 (但會超出視窗)*/
+        overflow-x:auto; /*hidden超出的部分會隱藏; visible超出的部分會顯示; scroll內容太長會出現卷軸*/
+    }
+    /*
+    .nav{
+        font-size:16px;
+    }
+    .nav>.item{
+        padding:15px 10px;
+    }
+    */
+}
+
+/*虛擬選擇器，和其他選擇器搭配*/
+.nav>.item:hover{
+    background-color:#dddddd;
+}
+.visual{
+    height:400px; line-height: 400px;
+    background-image:url(visual.jpg);
+    background-position: center center; /*預設圖的左上角對到螢幕左上角*/
+    background-size:cover;  /*背景固定尺寸  cover保持圖片比例*/
+
+    font-size: 50px;
+    font-family:"微軟正黑體";
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 10px #3F69AA;
+}
+
+/*CSS排版工具：flexbox*/
+.content{
+    display:flex; /*在容器上做左右並排*/
+    justify-content:center; /*方塊置中*/
+    align-items: center; /*垂直對齊*/
+
+    padding: 40px 0px;
+}
+.content>.left{
+    width:500px;
+    text-align:center;
+}
+.content>.right{
+    width:600px;
+    font-size:24px;
+    line-height: 40px;
+    text-align: center;
+}
+/*.left中的細節*/
+.content>.left>.head{
+    width:400px;
+    height:400px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius:50%;
+}
+@media (max-width:500px){
+
+}
+/*.right中的細節*/
+.content>.right>.title{
+    font-weight: bold;
+}
+
+@media (max-width:500px){
+    .content{
+        flex-wrap:wrap; /*讓flexbox中的區塊可以往下掉*/
+    }
+    .content>.left{
+        width:95%;
+    }
+    .content>.right{
+        width:95%;
+    }
+    .content>.left>.head{
+        width:90%;
+        height:auto;
+    }
+
+}
+
+
+
+/*footer*/
+.footer{
+    background-color: #223344;
+    color: white;
+    font-size:24px;
+    font-family:"微軟正黑體";
+    text-align:center;
+    padding:40px 0px;
+}
